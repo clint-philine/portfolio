@@ -21,7 +21,7 @@ export async function POST(req: Request) {
       // "Resend Onboarding" sandbox sender works before you verify a domain.
       // Once you verify your own domain in Resend, switch this to
       // e.g. "Portfolio <hello@yourdomain.com>".
-      from: "Portfolio Contact",
+      from: "Portfolio Contact <onboarding@resend.dev>",
       to: siteConfig.email,
       replyTo: email,
       subject: `New project inquiry from ${name}`,
