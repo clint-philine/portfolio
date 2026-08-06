@@ -8,16 +8,16 @@ import type {
 } from "@/types";
 
 export const siteConfig = {
-  name: "Alex Rivera",
+  name: "Karyll Clint Philine Nable",
   role: "Drafting Technology Student & Freelance CAD Designer",
   tagline:
     "I create professional architectural drawings, technical documentation, and 3D visualizations that transform ideas into accurate construction-ready plans.",
-  email: "hello@alexrivera.design",
-  location: "Cebu City, Philippines",
+  email: "karyllclintphilinenable@gmail.com",
+  location: "Mabini, Cebu City, Cebu, Philippines 6000",
   social: {
-    facebook: "https://facebook.com/",
-    linkedin: "https://linkedin.com/in/",
-    github: "https://github.com/",
+    facebook: "https://facebook.com/clint.nbl",
+    linkedin: "https://linkedin.com/in/clint-philine",
+    github: "https://github.com/clint-philine",
   },
 };
 

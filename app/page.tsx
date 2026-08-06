@@ -16,7 +16,7 @@ export default function HomePage() {
       <SkillsSection />
       <ServicesPreview />
       <FeaturedProjects />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <CTASection />
     </>
   );

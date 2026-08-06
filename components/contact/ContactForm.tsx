@@ -36,17 +36,41 @@ const budgets = [
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [projectType, setProjectType] = useState("");
   const [budget, setBudget] = useState("");
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setError(null);
     setLoading(true);
-    // Placeholder submit handler — wire up to an API route, Formspree, or email service.
-    setTimeout(() => {
-      setLoading(false);
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      projectType,
+      budget,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send message.");
+      }
+
       setSubmitted(true);
-    }, 900);
+    } catch {
+      setError("Something went wrong sending your message. Please try again or email me directly.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -121,6 +145,12 @@ export function ContactForm() {
           required
         />
       </div>
+
+      {error && (
+        <p className="mt-6 rounded-xl bg-red-50 px-4 py-3 text-sm text-red-600 dark:bg-red-950/40 dark:text-red-400">
+          {error}
+        </p>
+      )}
 
       <Button type="submit" variant="accent" size="lg" className="mt-8 w-full sm:w-auto" disabled={loading}>
         {loading ? "Sending..." : "Send Message"}
