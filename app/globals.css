@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-primary font-body antialiased;
+  }
+
+  .dark body {
+    @apply bg-dark-bg text-[#F1F5F9];
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+
+  ::selection {
+    background-color: #F59E0B;
+    color: #0F172A;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-secondary/40 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-secondary/70;
+  }
+
+  :focus-visible {
+    outline: 2px solid #F59E0B;
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .blueprint-grid {
+    background-image: theme("backgroundImage.blueprint");
+    background-size: theme("backgroundSize.grid");
+  }
+
+  .dark .blueprint-grid {
+    background-image: theme("backgroundImage.blueprint-dark");
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40;
+  }
+
+  .dark .glass {
+    @apply bg-dark-surface/60 border-white/10;
+  }
+
+  .container-padded {
+    @apply px-6 md:px-10 lg:px-16;
+  }
+
+  .section {
+    @apply py-24 md:py-32;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs md:text-sm font-semibold uppercase tracking-[0.2em] text-accent;
+  }
+
+  .line-divider {
+    @apply h-px w-full bg-border dark:bg-dark-border;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
