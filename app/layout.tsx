@@ -21,7 +21,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://alexrivera.design"),
+  metadataBase: new URL("https://clint-philine.design"),
   title: {
     default: `${siteConfig.name} | ${siteConfig.role}`,
     template: `%s | ${siteConfig.name}`,
@@ -48,6 +48,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.tagline,
+  },
+  icons: {
+    icon: "/fav.png",
   },
   robots: { index: true, follow: true },
 };

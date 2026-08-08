@@ -1,4 +1,0 @@
-Place your actual resume PDF at: public/resume.pdf
-
-The "Download Resume" buttons on the Home and Resume pages link to /resume.pdf.
-Once you add the real file at public/resume.pdf, the download will work automatically.
